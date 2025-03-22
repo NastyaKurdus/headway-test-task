@@ -4,7 +4,9 @@ import Question from '../../../components/Question/question';
 import styles from './page.module.scss';
 import { redirect } from 'next/navigation';
 
-export default async function Page({ params }: { params: { idQuestions: string } }) {
+export default async function Page({ params }: {
+  params: Promise<{ idQuestions: string }>
+}) {
   const level = await getLevel();
   const { idQuestions } = await params
   const currentQuestionIndex = +idQuestions;
