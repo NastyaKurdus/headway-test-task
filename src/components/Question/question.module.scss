@@ -1,0 +1,29 @@
+.questionBox {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 30px;
+    h2 {
+        font-weight: 600;
+        font-size: 32px;
+    }
+}
+
+.notify {
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .questionBox {
+    width: 100%;
+    padding: unset;
+    h2 {
+      font-size: 18px;
+      text-align: center;
+      padding: 0 15px;
+    }
+  }
+}

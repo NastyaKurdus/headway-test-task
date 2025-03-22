@@ -1,0 +1,147 @@
+.answersList {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  .hexItemBox {
+    width: 50%;
+  }
+}
+
+.answerItem{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 35px;
+  cursor: pointer;
+}
+
+.hexItemBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  height: 1px;
+  width: 100%;
+  background-color: #D0D0D8;
+}
+
+.hexItem {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  background-color: #D0D0D8;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hexItem::after {
+  content: "";
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  position: absolute;
+  background-color: white;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  z-index: -1;
+}
+
+.correct.hexItemBox {
+  .hexItem{
+      background-color: #47D867;
+      color: #47D867;
+      &::after {
+          background-color: #E6FAEA;
+      }
+  }
+  .line {
+      background-color: #47D867;
+  }
+}
+
+.wrong.hexItemBox {
+  .hexItem{
+      background-color: #EC6259;
+      color: #EC6259;
+      &::after {
+          background-color: #FDEEED;
+      }
+  }
+  .line {
+      background-color: #EC6259;
+  }
+}
+
+.hover.hexItemBox {
+  .hexItem, .line{
+      background-color: #FF8B37;
+      color: #FF8B37;
+  }
+}
+
+.select.hexItemBox {
+  .hexItem{
+      background-color: #FF8B37;
+      color: #FF8B37;
+      &::after {
+          background-color: #FFF3EB;
+      }
+  }
+  .line {
+      background-color: #FF8B37;
+  }
+}
+
+.disactive.hexItemBox {
+  .hexItem{
+      color: #D0D0D8;
+  }
+}
+
+.md.hexItem {
+  height: 40px;
+}
+
+.lg.hexItem {
+  height: 72px;
+}
+
+.answerOption {
+  color: #FF8B37;
+  font-size: 20px;
+  font-weight: 600;
+  padding-right: 15px;
+}
+
+
+@media (max-width: 768px) {
+  .answersList {
+    flex-direction: column;
+    .hexItemBox {
+      width: 100%;
+    }
+  }
+
+  .md.hexItem {
+    height: 32px;
+  }
+  
+  .lg.hexItem {
+    height: 56px;
+  }
+
+  .answerOption {
+    font-size: 14px;
+  }
+}
